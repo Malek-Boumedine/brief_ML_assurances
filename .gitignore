@@ -1,7 +1,2 @@
 .venv
-Réalisez des modélisations de données performantes/
-2-modele copy.ipynb
-notes_ML/
-notes.txt
-notes_stats.txt
-Brief _ Prédire une prime d’assurance.pdf
+__pycache__
