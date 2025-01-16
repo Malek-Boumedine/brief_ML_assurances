@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
 import joblib
-import model_classes_defs
+import main
+
+
 
 # Charger le modèle
 def charger_modele() -> object : 

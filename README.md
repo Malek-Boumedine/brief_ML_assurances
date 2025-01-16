@@ -10,6 +10,7 @@
 ![SciPy](https://img.shields.io/badge/SciPy-1.15.0-lightgrey.svg)
 ![Missingno](https://img.shields.io/badge/Missingno-0.5.2-blueviolet.svg)
 ![Statsmodels](https://img.shields.io/badge/Statsmodels-0.14.4-success.svg)
+
 ## 📋 Contexte du Projet
 
 Assur'Aimant, un assureur français, souhaite s'implanter sur le marché américain et moderniser son processus d'estimation des primes d'assurance. Actuellement basé sur l'expertise des courtiers, le processus est chronophage et coûteux. Ce projet vise à automatiser et optimiser cette estimation grâce au machine learning.
@@ -26,7 +27,8 @@ Assur'Aimant, un assureur français, souhaite s'implanter sur le marché améric
 3. [Application](#-application)
 4. [Installation](#-installation)
 5. [Résultats](#-résultats)
-6. [Équipe et Contact](#-équipe-et-contact)
+6. [Gestion de Projet](#-gestion-de-projet)
+7. [Équipe et Contact](#-équipe-et-contact)
 
 ## 📊 Analyse des Données
 
@@ -68,10 +70,22 @@ Données collectées auprès d'Assur'Aimant à Houston, comprenant :
    - Encodage des catégories
 
 2. **Modèles Testés**
-   - Baseline (LinearRegressor)
+   - Baseline (DummyRegressor pour comparaison)
    - Régression Lasso
    - Régression Ridge
    - ElasticNet
+
+3. **Optimisation**
+   - Utilisation de GridSearchCV pour ajuster les hyperparamètres
+   - Validation croisée pour éviter le surapprentissage
+
+### Feature Importance
+Top 5 variables les plus influentes :
+1. bmi smoker  (coef: 6843.404788)
+2. age^2  (coef: 3416.503107)
+3. smoker bmi_cat_obésité I  (coef: 2954.342833)
+4. smoker bmi_cat_obésité II  (coef: 2491.658541)
+5. smoker bmi_cat_obésité III  (coef: 1337.159042)
 
 ### Performances Finales
 
@@ -82,6 +96,18 @@ Données collectées auprès d'Assur'Aimant à Houston, comprenant :
 | MAE | 1990.90 | Écart absolu moyen |
 | MSE | 10748554.85 | Erreur quadratique moyenne |
 | MedAE | 1546.51 | Erreur médiane |
+
+## 🔧 Architecture Technique
+
+### Stack Technique
+- **Preprocessing** : scikit-learn Pipelines
+- **Modélisation** : Lasso Regression
+- **API** : Streamlit
+- **Déploiement** : Docker
+
+### Pipeline de Production
+![alt text](.pipeline.png)
+
 
 ## 💻 Application Streamlit
 
@@ -94,33 +120,44 @@ Données collectées auprès d'Assur'Aimant à Houston, comprenant :
 ### Installation et Utilisation
 
 ```bash
-git clone https://github.com/Assuraimant/prediction-primes.git
-cd 3.\ IA_prime_assurance
+git clone git@github.com:Malek-Boumedine/brief_ML_assurances.git
+cd brief_ML_assurances
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## 📈 Points Forts du Projet
+📅 Gestion de Projet
+Planning
 
-- ✅ Précision élevée (R² > 0.92)
-- 🚀 Réduction significative du temps d'estimation
-- 📱 Interface utilisateur intuitive
-- 📊 Insights business actionnables
+      Semaine 1 : Analyse et Modélisation
+      Semaine 2 : Développement Application
 
-## 👥 Équipe et Contact
+Méthodologie
 
-- **Malek** - Data Scientist - Modélisation, Interface et Modélisation
-- **Dorothée** - Data Scientist - Modélisation, Analyse et Mise en forme
+      Sprints hebdomadaires
+      Daily meetings
+      Code review systématique
+      Utilisation de Trello pour la gestion des tâches
 
-### Support
+📈 Points Forts du Projet
+
+      ✅ Précision élevée (R² > 0.92)
+      🚀 Réduction significative du temps d'estimation
+      📱 Interface utilisateur intuitive
+      📊 Insights business actionnables
+
+👥 Équipe et Contact
+
+      Malek - Modélisation, Interface et Deploiement
+      Dorothée - Modélisation, Analyse et Mise en forme
+
+Support
 
 Pour toute question ou assistance :
 
-- 📧 Email : contact@assuraimant.com
-- 🌐 Site : www.assuraimant.com
+      📧 Email : contact@assuraimant.com
+      🌐 Site : www.assuraimant.com
 
----
-
-<p align="center">
-Développé pour Assur'Aimant par l'équipe Data Science
-</p>
+<p align="center"> Développé pour Assur'Aimant par l'équipe Data Science </p> 
