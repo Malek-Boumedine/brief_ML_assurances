@@ -1,0 +1,13 @@
+Scaler,Model,"Best Score (R2, Train)",Test R2,Best Params
+StandardScaler,Lasso,0.8490635013067275,0.9201038272378069,"{'lasso__alpha': 100, 'lasso__max_iter': 1000, 'poly__degree': 2}"
+RobustScaler,ElasticNet,0.8475157962360814,0.9186582169832784,"{'elasticnet__alpha': 10.0, 'elasticnet__l1_ratio': 1.0, 'elasticnet__max_iter': 1000, 'poly__degree': 2}"
+RobustScaler,Lasso,0.8475157962360814,0.9186582169832784,"{'lasso__alpha': 10, 'lasso__max_iter': 1000, 'poly__degree': 2}"
+StandardScaler,ElasticNet,0.8466304249589275,0.9185508714774704,"{'elasticnet__alpha': 10.0, 'elasticnet__l1_ratio': 1.0, 'elasticnet__max_iter': 1000, 'poly__degree': 2}"
+MinMaxScaler,Ridge,0.8465960302338933,0.9184258578798088,"{'poly__degree': 2, 'ridge__alpha': 1}"
+MinMaxScaler,Lasso,0.8486871271967503,0.9182584842087947,"{'lasso__alpha': 10, 'lasso__max_iter': 1000, 'poly__degree': 2}"
+MinMaxScaler,ElasticNet,0.8486871271967503,0.9182584842087947,"{'elasticnet__alpha': 10.0, 'elasticnet__l1_ratio': 1.0, 'elasticnet__max_iter': 1000, 'poly__degree': 2}"
+RobustScaler,Ridge,0.8460969307992574,0.9180693445194175,"{'poly__degree': 2, 'ridge__alpha': 1}"
+StandardScaler,Linear Regression,0.8576089111145742,0.918056932412496,
+MinMaxScaler,Linear Regression,0.8576089111145742,0.9180569324124955,
+RobustScaler,Linear Regression,0.8576089111145742,0.9180569324124955,
+StandardScaler,Ridge,0.8462219810271936,0.917815921907016,"{'poly__degree': 2, 'ridge__alpha': 10}"
