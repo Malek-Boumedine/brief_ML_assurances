@@ -325,6 +325,9 @@ if __name__ == "__main__" :
     plt.grid()
     plt.tight_layout()
     plt.show()
+    print("5 variables les plus importantes :")
+    print(pipeline_coef_df.tail())
+    
 
     
     
