@@ -7,6 +7,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, m
 from sklearn.linear_model import Lasso
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 # importation des données
 data = pd.read_csv("dataset_assurance.csv")
@@ -268,7 +269,7 @@ pipeline_complete = Pipeline([
 ])
 
 # split trainset testset
-X_train, X_test, y_train, y_test = train_test_split( X, y, shuffle=True, train_size=0.85, random_state=42, stratify=X["smoker"])
+X_train, X_test, y_train, y_test = train_test_split(X, y, shuffle=True, train_size=0.85, random_state=42, stratify=X["smoker"])
 
 # entrainement
 pipeline_complete.fit(X_train, y_train)
@@ -291,6 +292,43 @@ if __name__ == "__main__" :
     print("#"*20)
     df1 = pd.DataFrame([valeurs1])
     print(pipeline_complete.predict(df1))
+    
+    features_preprocess = pipeline_complete.named_steps["preprocessor"].transform(X_train).columns
+    
+    # récupérer features après transformation poly
+    poly_features = pipeline_complete.named_steps["poly"].get_feature_names_out(features_preprocess)
+    # poly_features
+
+    # récupérer masque des features sélectionnées
+    feature_mask = pipeline_complete.named_steps["feature_selection"].get_support()
+    # feature_mask
+
+    # récupérer les noms des features sélectionnées
+    selected_features = poly_features[feature_mask]
+    # selected_features
+
+    # récupérer les coefficients
+    coefficients = pipeline_complete.named_steps["regressor"].coef_
+    # coefficients
+
+    # df avec les features et leurs coefficients
+    pipeline_coef_df = pd.DataFrame({
+        "feature": selected_features,
+        "coefficient": coefficients
+    }).sort_values("coefficient", key=abs, ascending=True)  # trier selon la valeur absolue 
+    # pipeline_coef_df
+
+    plt.figure(figsize=(20, 12))
+    plt.barh(pipeline_coef_df["feature"], pipeline_coef_df["coefficient"])
+    plt.title("coefficients des variables sélectionnées dans la pipeline")
+    plt.xlabel("Coefficient")
+    plt.grid()
+    plt.tight_layout()
+    plt.show()
+    print("5 variables les plus importantes :")
+    print(pipeline_coef_df.tail())
+    
+
     
     
     
